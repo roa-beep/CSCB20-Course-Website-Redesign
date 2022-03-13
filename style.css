@@ -1,0 +1,126 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+  }
+  
+  .container {
+    margin: 0 auto;
+    max-width: 940px; 
+    padding: 0 10px;
+  }
+  
+  .header {
+    background: url(https://i.ibb.co/6Y7RfGX/IMG-7535-auto-x2.jpg) no-repeat center center; 
+    background-size: cover;
+    height: 800px;
+    text-align: center; 
+  }
+  
+  .header .container {
+    position: relative;
+    top: 200px;
+  }
+  
+  .header h1 {
+    color: #fff;
+    line-height: 100px; 
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 80px;
+    text-transform: uppercase; 
+  }
+  
+  @media (min-width:850px) {
+    .header h1 {
+      font-size: 120px;
+    }
+  }
+  
+  .header p {
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 8px;
+    margin-bottom: 40px;
+    margin-top: 0;
+    text-transform: uppercase; 
+  }
+  
+  .btn {
+    color: #fff;
+    background: #000;
+    padding: 10px 40px;
+    text-decoration: none; 
+    transition: background .5s; 
+  }
+  
+  .nav { 
+    background: #000;
+    height: 80px; 
+    width: 100%;
+  }
+  
+  .nav ul {
+    height: 80px;
+    list-style: none;
+    margin: 0 auto; 
+  }
+  
+  .nav ul li {
+    color: #fff;
+    display: inline-block; 
+    height: 80px;
+    line-height: 80px; 
+    list-style: none;
+    padding: 0 10px;
+    letter-spacing: 1px;
+    transition: background .5s;
+  }
+  
+  .btn:hover, .nav ul li:hover {
+    background: #91010d;
+    cursor: default; 
+    transition: background .5s; 
+  }
+  
+  .main .container {
+    margin: 80px auto;
+  }
+  
+  
+  .footer { 
+    background: #000;
+    height: 100px; 
+    padding-bottom: 50px;
+    padding-top: 30px;
+  }
+  
+  .footer p { 
+    color: #fff;
+    font-size: 14px;  
+    height: 100px; 
+    line-height: 80px;
+    margin: 0;  
+    letter-spacing: 1px;
+    margin-bottom: 80px;
+  
+  }
+  
+  .main img {
+    float: left;
+    margin: 50px 200px 10px 2;
+  }
+  
+  @media (max-width: 500px) {
+    .header h1 {
+      font-size: 55px;
+      line-height: 70px;
+    }
+    .main img {
+      width: 100%;
+    }
+  }
