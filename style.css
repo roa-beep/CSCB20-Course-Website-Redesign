@@ -76,7 +76,7 @@ body {
   margin-bottom: 40px;
 }
 .header {
-  background: url(https://i.ibb.co/6Y7RfGX/IMG-7535-auto-x2.jpg) no-repeat center center ;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.57), #000), url(https://i.ibb.co/6Y7RfGX/IMG-7535-auto-x2.jpg) no-repeat center center;
   background-size: cover;
   height: 800px;
   text-align: center;
