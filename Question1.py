@@ -2,7 +2,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/CSCB20-A2")
+@app.route("/")
 def user(name):
     newname = ''
     if (not name.isalpha()):
