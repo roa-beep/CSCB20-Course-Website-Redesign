@@ -3,24 +3,27 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route("/")
+def home():
+    return "hi"
+
+@app.route("/<name>")
 def user(name):
+    name = name.strip()
     newname = ''
-    if (not name.isalpha()):
+    if (name.isalpha() == False):
         for c in name:
-            if c.isaslpha():
-                newname = newname + c
-        return '''
-                <h1>Welcome, {newname}, to my CSCB20 website!</h1>
-        '''
-    elif (name[0] == ' ' and name[1] == ' '):
-        newname = name[2:]
-        newname = newname[0].upper() + newname[1:].lower()
+                if c.isalpha():
+                    newname += c
+        return f'<h1>Welcome, {newname}, to my CSCB20 website!</h1>'
     elif (name.isupper()):
         newname = name.lower()
     elif (name.islower()):
         newname = name.upper()
-    return '''
-    <h1>Welcome, {newname}, to my CSCB20 website!</h1>
-    '''
+    else:
+        return f'<h1>Welcome, {name}, to my CSCB20 website!</h1>'
+    return f'<h1>Welcome, {newname}, to my CSCB20 website!</h1>'
+
+print(user('Dave'))
+
 if (__name__) == "__main__":
-    app.run(debug = True)
+    app.run(debug = True, port=4000)
