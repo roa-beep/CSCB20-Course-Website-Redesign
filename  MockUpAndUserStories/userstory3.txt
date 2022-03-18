@@ -1,0 +1,3 @@
+As a student user, clicking on the Assignments link in the 
+navigation bar should display a grid of all assignments with 
+two text fields, one for the Overview and one for the FAQs.

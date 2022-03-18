@@ -1,0 +1,3 @@
+As a student user, clicking on the Course Team link in the 
+navigation bar should display a text block inside a container
+with the contact information of the instructor and the TAs.

@@ -1,0 +1,3 @@
+As a student user, clicking on the Labs link in the navigation
+bar should display a text block inside a container with the lab
+sections and tutorial exercises.

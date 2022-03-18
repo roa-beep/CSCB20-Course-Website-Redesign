@@ -1,0 +1,3 @@
+As a student user, the student must be greeted with a thank you 
+message on the same webpage after sending anonymous feedback and 
+pressing the submit button on the preceding form.
