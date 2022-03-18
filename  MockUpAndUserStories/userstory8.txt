@@ -1,0 +1,4 @@
+As a student user, must be able to see a footer after scrolling
+to the bottom of every page containing information about the designers
+of the website as well as a link to the faculty of Computer Science 
+at the university of Toronto.

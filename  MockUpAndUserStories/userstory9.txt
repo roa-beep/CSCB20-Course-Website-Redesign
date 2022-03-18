@@ -1,0 +1,3 @@
+As a student user, the student must always be able to see 
+the navigation bar displaying at the top of the screen 
+while scrolling down every page for easy navigation.

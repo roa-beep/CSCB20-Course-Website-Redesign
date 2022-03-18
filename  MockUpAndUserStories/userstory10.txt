@@ -1,0 +1,5 @@
+As a student user, clicking on the MarkUs link in the 
+navigation bar should open a separate tab so that I'm
+not redirected to another page and can quickly close 
+the new tab when I'm finished without losing my original
+webpage location. 
