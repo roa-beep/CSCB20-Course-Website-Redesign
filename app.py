@@ -141,6 +141,8 @@ def index():
     
 @app.route("/feedback", methods=["GET", "POST"])
 def feedback():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
     if request.method == "POST":
         ins = request.form["instructor"]
         msg = request.form["message"]
