@@ -1,18 +1,12 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Signup</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    {% with messages = get_flashed_messages() %} {% if messages %} {% for
-    message in messages %}
-    <p>{{ message }}</p>
-    {% endfor %} {% endif %} {% endwith %}
-
-    <!-- Lets the user create a new account. -->
-    <div>
-      <h1>Signup</h1>
+    <link type="text/css" href="{{url_for('static', filename='login.css')}}" rel='stylesheet' />
+   <body>
+      <div class="header">
+            <h1>Welcome to CSCB20!</h1></div>
+      
+        <div class="content">
+    <div class="content-container">
+      <h2>Please enter your Username and Password</h2>
       <form action="/api/signup" method="POST">
         <label for="firstname"> Please enter your first name below: </label>
         <input
@@ -49,7 +43,7 @@
         /><br />
 
         <label for="type"> Please enter if you are a student or instructor (s/i) </label>
-        <input
+        <input 
           type="text"
           name="type"
           placeholder="type"
@@ -59,13 +53,17 @@
         /><br />
 
         <!-- Creates a submit button -->
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" class="btn"/>
+        <br />
+        <a href = "login" class = "btn">Login</a>
       </form>
     </div>
-
-    <div>
-      <h1>Login</h1>
-      <a href="login"><button>Login</button> </a>
     </div>
-  </body>
+      <div class="footer">
+         <div class="footer-container">
+            <a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science" target="_blank" class="footer-link">Faculty of Computer Science at the University of Toronto Scarborough</a> 
+            <div class="footer-credits"> &copy; Site by Roa Brahimi | Aniqa Khan | Zaamin Rattansi</div>
+         </div>
+      </div>
+   </body>
 </html>

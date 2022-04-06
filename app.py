@@ -143,14 +143,17 @@ def home():
     db = get_db()
 
     user = query_db(
-        "SELECT firstname, lastname FROM User WHERE username = (?)",
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
         [session["user"]],
         one=True,
     )
     db.close()
 
     firstname, lastname = user["firstName"], user["lastName"]
-    return render_template("index.html", firstname=firstname, lastname=lastname)
+    if (user["type"] == "s"):
+        return render_template("studenthome.html", firstname=firstname, lastname=lastname)
+    else:
+        return render_template("instructorhome.html", firstname=firstname, lastname=lastname)
 
 
 if __name__ == "__main__":

@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Log In</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <!-- Prints the error message. -->
-    {% with error_message = get_flashed_messages() %} {% if error_message %}
-    <!-- Loops through the error messages. -->
-    {% for error in error_message %}
-    <p>{{ error }}</p>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <p>{{ message }}</p>
     {% endfor %} {% endif %} {% endwith %}
 
-    <!-- Lets the user log in. -->
+    <!-- Lets the user create a new account. -->
     <div>
-      <h1>Log in</h1>
-      <form action="/api/login" method="POST">
+      <h1>Signup</h1>
+      <form action="/api/signup" method="POST">
+        <label for="firstname"> Please enter your first name below: </label>
+        <input
+          type="text"
+          name="firstname"
+          placeholder="First Name"
+          title="Please only input letters."
+          size="50"
+          required
+        /><br />
+
+        <label for="lastname"> Please enter your last name below: </label>
+        <input type="text" name="lastname" placeholder="Last Name""
+        title="Please only input letters." size="50" required /><br />
+
+        <label for="username"> Please enter your username below: </label>
         <input
           type="text"
           name="username"
-          placeholder="username"
+          placeholder="Username"
+          title="Please only input letters and/or digits."
           size="50"
           required
         /><br />
+
+        <label for="password"> Please enter your password below: </label>
         <input
           type="password"
           name="password"
-          placeholder="password"
+          placeholder="Password"
+          title="Please only input letters and/or digits."
           size="50"
           required
         /><br />
+
+        <label for="type"> Please enter if you are a student or instructor (s/i) </label>
+        <input
+          type="text"
+          name="type"
+          placeholder="type"
+          title="Please only input letters and/or digits."
+          size="50"
+          required
+        /><br />
+
+        <!-- Creates a submit button -->
         <input type="submit" value="Submit" />
       </form>
     </div>
 
-    <!-- Lets the user create a new account. -->
     <div>
-      <h1>Create New Account</h1>
-      <a href="signup"><button>Create New Account</button> </a>
+      <h1>Login</h1>
+      <a href="login"><button>Login</button> </a>
     </div>
   </body>
 </html>
