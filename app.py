@@ -8,11 +8,15 @@ from flask import (
     abort,
     flash,
     g,
+    
 )
 import sqlite3
+from flask_bcrypt import Bcrypt
 
 DATABASE = "Assignment3.db"
 TABLE = "User"
+
+
 
 
 def get_db():
@@ -49,6 +53,7 @@ def query_db(query, args=(), one=False):
 
 app = Flask(__name__)
 
+bcrypt = Bcrypt(app)
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -68,18 +73,18 @@ def login():
             flash("Did not enter all necessary information")
         username = request.form["username"]
         password = request.form["password"]
-
+        
         db = get_db()
 
         user = query_db(
-            "SELECT username, password FROM User WHERE username = ? and password = ?",
-            [username, password],
+            "SELECT username, password FROM User WHERE username = ?",
+            [username],
             one=True,
         )
         db.close()
 
         print("user value:", user)
-        if user:
+        if user and bcrypt.check_password_hash(user["password"], password):
             session["user"] = username
             return redirect(url_for("home"))
         else:
@@ -106,6 +111,7 @@ def signup():
         lastname = request.form["lastname"]
         username = request.form["username"]
         password = request.form["password"]
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         type = request.form["type"]
 
         db = get_db()
@@ -117,7 +123,7 @@ def signup():
         try:
             cur.execute(
                 "INSERT INTO User values (?,?,?,?,?)",
-                [username, password, firstname, lastname, type],
+                [username, hashed_password, firstname, lastname, type],
             )
             db.commit()
             flash("User successfully added")
