@@ -3,10 +3,10 @@
    <body>
       <div class="nav">
          <nav class="nav-menu">
-            <a href="index.html" class="nav-link w--current">Home</a>
-            <a href="courseteam.html" class="nav-link">Course team</a>
-            <a href="anon.html" class="nav-link">Anon Feedback</a>
-            <a href="labs.html" class="nav-link">Labs</a>
+            <a href="home" class="nav-link w--current">Home</a>
+            <a href="/static/courseteam.html" class="nav-link">Course team</a>
+            <a href="anonstudent.html" class="nav-link">Anon Feedback</a>
+            <a href="/static/labs.html" class="nav-link">Labs</a>
             <a href="asgmt.html" class="nav-link">Assignments</a>
             <a href="gradestudent.html" class="nav-link">Grades</a>
             <a href="https://markus.utsc.utoronto.ca/cscb20w22" target="_blank" class="nav-link">Markus</a>
@@ -22,7 +22,7 @@
       </div>
       <div class="content">
          <div class="content-container">
-            <h1> Welcome Student</h1>
+            <h1> Welcome {{firstname}} {{lastname}}</h1>
             <h2>Course Description</h2>
             <p>A practical introduction to databases and Web app development. Databases: terminology and applications; creating, querying and updating databases; the entity-relationship model for database design. Web documents and applications: static and interactive documents; Web servers and dynamic server-generated content; Web application development and interface with databases.</p>
             <h2>Prerequisite</h2>

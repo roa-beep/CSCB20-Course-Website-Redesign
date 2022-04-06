@@ -11,7 +11,7 @@ from flask import (
 )
 import sqlite3
 
-DATABASE = "database.db"
+DATABASE = "Assignment3.db"
 TABLE = "User"
 
 
