@@ -139,6 +139,7 @@ def signup():
 def index():
     return redirect(url_for("login"))
     
+    
 
 
 @app.route("/home")

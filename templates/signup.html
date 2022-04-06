@@ -7,6 +7,10 @@
         <div class="content">
     <div class="content-container">
       <h2>Please enter your Username and Password</h2>
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+        message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %} {% endif %} {% endwith %}
       <form action="/api/signup" method="POST">
         <label for="firstname"> Please enter your first name below: </label>
         <input
