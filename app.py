@@ -139,6 +139,22 @@ def signup():
 def index():
     return redirect(url_for("login"))
     
+@app.route("/feedback", methods=["GET", "POST"])
+def feedback():
+    if request.method == "POST":
+        ins = request.form["instructor"]
+        msg = request.form["message"]
+        db = get_db()
+        cur = db.cursor()
+        try:
+            cur.execute(
+                "INSERT INTO anon(message, instructor) VALUES (?,?)",
+                [msg,ins],
+            )
+            db.commit()
+        except sqlite3.InterfaceError as err:
+            flash("Feedback not added.")
+    return render_template("anon.html", user=session["user"])
     
 
 
