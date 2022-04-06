@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Log In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <!-- Prints the error message. -->
+    {% with error_message = get_flashed_messages() %} {% if error_message %}
+    <!-- Loops through the error messages. -->
+    {% for error in error_message %}
+    <p>{{ error }}</p>
+    {% endfor %} {% endif %} {% endwith %}
+
+    <!-- Lets the user log in. -->
+    <div>
+      <h1>Log in</h1>
+      <form action="/api/login" method="POST">
+        <input
+          type="text"
+          name="username"
+          placeholder="username"
+          size="50"
+          required
+        /><br />
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          size="50"
+          required
+        /><br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <!-- Lets the user create a new account. -->
+    <div>
+      <h1>Create New Account</h1>
+      <a href="signup"><button>Create New Account</button> </a>
+    </div>
+  </body>
+</html>

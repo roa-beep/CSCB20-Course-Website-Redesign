@@ -1,5 +1,5 @@
 <html>
-   <link href='login.css' rel='stylesheet' />
+    <link type="text/css" href="{{url_for('static', filename='login.css')}}" rel='stylesheet' />
    <body>
       <div class="header">
             <h1>Welcome to CSCB20!</h1></div>
@@ -7,14 +7,25 @@
         <div class="content">
     <div class="content-container">
       <h2>Please enter your Username and Password</h2>
-    <form method="get">
-    <input class = "input" placeholder="Username: " maxlength="100"><p></p>
-    </form>      
-    <form method="get">
-    <input class = "input" type = "password" placeholder="Password: " maxlength="100"><p></p>
-    <a href="index.html" class="btn">Login</a>
-    <a href="index.html" class="btn">Register</a>
-    </form>
+      <form action="/api/login" method="POST">
+         <input
+           type="text"
+           name="username"
+           placeholder="username"
+           size="50"
+           required
+         /><br />
+         <input
+           type="password"
+           name="password"
+           placeholder="password"
+           size="50"
+           required
+         /><br />
+         <input type="submit" value="Login" class="btn" />
+         <br />
+         <a href="signup" class="btn">Register</a>
+       </form>
     </div>
     </div>
       <div class="footer">
