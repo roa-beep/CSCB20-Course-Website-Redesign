@@ -187,6 +187,34 @@ def instructor_feedback():
                         urhelp=check,
                         anon_feedback=anon_feedback)  
 
+@app.route("/student-marks")
+def student_marks():
+    sql_student_marks_a1 = """
+    SELECT name, mark 
+    FROM grades
+    WHERE username = ? AND name = "A1"
+    """
+    mark_a1 = query_db(sql_student_marks_a1, (session["user"],))
+
+    sql_student_marks_a2 = """
+    SELECT name, mark 
+    FROM grades
+    WHERE username = ? AND name = "A2"
+    """
+    mark_a2 = query_db(sql_student_marks_a2, (session["user"],))
+
+    sql_student_marks_a3 = """
+    SELECT name, mark 
+    FROM grades
+    WHERE username = ? AND name = "A3"
+    """
+    mark_a3 = query_db(sql_student_marks_a2, (session["user"],))
+    
+    return render_template("student-marks.html",
+                        a1=mark_a1,
+                        a2=mark_a2,
+                        a3=mark_a3)  
+
 
 
 @app.route("/home")
