@@ -160,7 +160,7 @@ def feedback():
         cur = db.cursor()
         try:
             cur.execute(
-                "INSERT INTO anon(message, instructor) VALUES (?,?)",
+                "INSERT INTO anon(message, username) VALUES (?,?)",
                 [msg,ins],
             )
             db.commit()
