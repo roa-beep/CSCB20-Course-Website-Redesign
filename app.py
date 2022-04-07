@@ -143,6 +143,16 @@ def index():
 def feedback():
     if "user" not in session:
         abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "i"):
+        abort(403, "This view is students only")
     if request.method == "POST":
         ins = request.form["instructor"]
         msg = request.form["message"]
@@ -158,6 +168,25 @@ def feedback():
             flash("Feedback not added.")
     return render_template("anon.html", user=session["user"])
     
+
+@app.route("/instructor-viewfeedback")
+def instructor_feedback():
+    sql_anon_feedback = """
+    SELECT message
+    FROM anon
+    WHERE username = ?
+    """
+    anon_feedback = query_db(sql_anon_feedback, (session["user"],))
+    
+    for p in anon_feedback:
+        res = [p[key] for key in ('message',)]
+        print(res)
+        check = ('message',)
+        return render_template("instructor-viewfeedback.html",
+                        instructor_name=session["user"],
+                        urhelp=check,
+                        anon_feedback=anon_feedback)  
+
 
 
 @app.route("/home")
