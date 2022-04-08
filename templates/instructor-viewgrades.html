@@ -22,8 +22,18 @@
             <div align="center" class="button-div">
                <div class="grid ">
 
+                  <div class="text-block">
+                     <div class="text-block">First name</div>         
+                     {% for a in names %}
+                        {% for aid, num in a.items() %}
+                        <div class="text-block">{{num}}</div>
+                        {% endfor %}
+                     {% endfor %}
+                  </div>
+
+
                <div class="text-block">
-                  <div class="text-block">Student username</div>         
+                  <div class="text-block">Student number</div>         
                   {% for a in students %}
                      {% for aid, num in a.items() %}
                      <div class="text-block">{{num}}</div>
@@ -32,7 +42,7 @@
                </div>
 
                <div class="text-block">  
-                  <div class="text-block">Assessment</div>     
+                  <div class="text-block">ID</div>     
                {% for a in assignments %}
                   {% for aid, num in a.items() %}
                   <div class="text-block">{{num}}</div>

@@ -190,7 +190,7 @@ def instructor_feedback():
 def get_assignments():
     # returns all the assignments
     sql_assignments = """
-    SELECT aid
+    SELECT assignment
     FROM marks
     ORDER BY username ASC, aid ASC
     """
@@ -199,7 +199,16 @@ def get_assignments():
 def get_students():
     # returns all the assignments
     sql_assignments = """
-    SELECT username
+    SELECT student_num
+    FROM marks
+    ORDER BY username ASC, aid ASC
+    """
+    return query_db(sql_assignments)
+
+def get_student_names():
+    # returns all the assignments
+    sql_assignments = """
+    SELECT student_name
     FROM marks
     ORDER BY username ASC, aid ASC
     """
@@ -215,9 +224,11 @@ def instructor_viewgrades():
     grades_tuples = query_db(sql)
     assignments = get_assignments()
     students = get_students()
+    names = get_student_names()
     return render_template("instructor-viewgrades.html",
                            instructor_name=session["user"],
                            grades=grades_tuples,
+                           names=names,
                            students=students,
                            assignments=assignments)
 
@@ -233,7 +244,7 @@ def student_marks():
     ORDER BY aid ASC
     """
     sql_assignments = """
-    SELECT aid
+    SELECT assignment
     FROM marks
     WHERE username = ?
     ORDER BY aid ASC

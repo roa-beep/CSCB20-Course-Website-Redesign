@@ -106,7 +106,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   max-width: 100%;
   grid-row-gap: 16px;
   grid-column-gap: 16px;
