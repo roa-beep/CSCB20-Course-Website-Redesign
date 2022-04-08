@@ -234,6 +234,51 @@ def instructor_viewgrades():
 
 
 
+def get_assignment_id():
+    # returns all the assignments
+    sql_assignments = """
+    SELECT DISTINCT aid
+    FROM marks
+    ORDER BY aid ASC
+    """
+    return query_db(sql_assignments)
+
+
+@app.route("/instructor-grader", methods=["GET", "POST"])
+def instructor_grading():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "s"):
+        abort(403, "This view is instructors only")
+    assignment_id = get_assignment_id()
+    if request.method == "POST":
+        student_num = request.form["snum"]
+        assignment_id = request.form["regrade-id"]
+        mark = request.form["grade"]
+        db = get_db()
+        cur = db.cursor()
+        try:
+            cur.execute(
+                "UPDATE marks SET mark = ? WHERE student_num = ? AND aid = ?",
+                [mark,student_num,assignment_id],
+            )
+            db.commit()
+        except sqlite3.InterfaceError as err:
+            flash("Grade not added.")
+    
+    return render_template("instructor-grader.html",
+                           instructor_name=session["user"],
+                           assignments=assignment_id,
+                           error=False)
+
 
 @app.route("/student-marks")
 def student_marks():
