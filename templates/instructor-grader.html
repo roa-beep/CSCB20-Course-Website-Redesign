@@ -1,0 +1,47 @@
+<html>
+    <link type="text/css" href="{{url_for('static', filename='login.css')}}" rel='stylesheet' />
+   <body>
+      <div class="header">
+            <h1>Authorized use only</h1></div>
+      
+        <div class="content">
+    <div class="content-container">
+
+      <div align="center" class="button-div">
+        <form class="grader" action="" method="POST">
+        <label for="snum">Student Number: </label>
+          <input class="login-box" type="text" maxlength="10" pattern="[0-9]{9,10}" placeholder="Student Number" name="snum" id="snum" required>
+          <br><br>
+
+
+          <label for="regrade-id">Select Assignment/Test:</label>
+          <select id="regrade-id" name="regrade-id">
+            {% for dict_item in assignments %}
+               {% for key, value in dict_item.items() %}
+               <option value="{{value}}">{{value}}</option>
+               {% endfor %}
+            {% endfor %}
+          </select>
+          <br><br>
+
+
+        </select>
+        <br><br>
+        <label for="grade">Mark (0-100):</label>
+        <input type="number" id="grade" onchange="limiter(this)" name="grade" min="0" max="100">
+        <br><br>
+        <button class="regrade-button" type="submit" name="submit-grade" id="submit-grade" onclick="">Submit Grade</button>
+        </form>
+        <a href="instructor-viewgrades" class="text-button">VIEW STUDENT GRADES</a>
+        <a href="instructor-viewregrade" class="text-button">VIEW REGRADE REQUESTS</a>
+      </div>
+
+    </div>
+      <div class="footer">
+         <div class="footer-container">
+            <a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science" target="_blank" class="footer-link">Faculty of Computer Science at the University of Toronto Scarborough</a> 
+            <div class="footer-credits"> &copy; Site by Roa Brahimi | Aniqa Khan | Zaamin Rattansi</div>
+         </div>
+      </div>
+   </body>
+</html>
