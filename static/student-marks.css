@@ -117,6 +117,27 @@ body {
     cursor: default;
     transition: background 0.5s;
   }
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 100%;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+}
+
+.text-block {
+  margin-right: 10px;
+  overflow: hidden;
+  margin-left: 10px;
+  padding: 15px 10px;
+  grid-template-columns: auto auto;
+}
+
+.text-block.first {
+  border-style: none;
+}
   @media screen and (max-width: 390px) {
     .header h1 {
         font-size: 50px;

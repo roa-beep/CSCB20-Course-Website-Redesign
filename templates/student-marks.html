@@ -22,17 +22,36 @@
     </div>
     <div class="content">
         <div class="content-container">
-            <h2>Assignment 1</h1>
-            <p>{{a1}}</p>
-            <h2>Assignment 2</h2>
-            <p>{{a2}}</p>
-            <h2>Assignment 3</h1>
-            <p>{{a3}}</p>
-            <h2>Midterm Exam</h1>
-            <p>{{mid}}</p>
-            <h2>Final Exam</h1>
-            <p>{{final}}</p>
-        
+         <div align="center" class="button-div">
+            <div class="grid ">
+
+
+
+            <div class="text-block">  
+               <div class="text-block">Asgmt</div>     
+            {% for a in assignments %}
+               {% for aid, num in a.items() %}
+               <div class="text-block">{{num}}</div>
+               {% endfor %}
+            {% endfor %}
+         </div>
+
+         <div class="text-block">
+            <div class="text-block">Mark</div>         
+            {% for a in grades %}
+               {% for aid, num in a.items() %}
+               <div class="text-block">{{num}}</div>
+               {% endfor %}
+            {% endfor %}
+         </div>         
+
+      </div>         
+   
+            </div>
+                  {% if not grades %}
+                     <div>No Grades to view!</div>
+                  {% endif %}
+               </div>     
 
            
         </div>
