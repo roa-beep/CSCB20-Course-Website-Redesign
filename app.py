@@ -280,6 +280,41 @@ def instructor_grading():
                            error=False)
 
 
+@app.route("/student-remark", methods=["GET", "POST"])
+def student_remark():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "i"):
+        abort(403, "This view is students only")
+    if request.method == "POST":
+        student_num = request.form["snum"]
+        assignment_id = request.form["regrade-id"]
+        reason = request.form["reason"]
+        db = get_db()
+        cur = db.cursor()
+        try:
+            cur.execute(
+                "INSERT INTO remark_requests(student_num, aid, regrade_reason) VALUES (?,?, ?)",
+                [student_num, assignment_id, reason],
+            )
+            db.commit()
+        except sqlite3.InterfaceError as err:
+            flash("Remark not added.")
+    
+    return render_template("student-remark.html",
+                           student_name=session["user"],
+                           error=False)
+
+
+
 @app.route("/student-marks")
 def student_marks():
     sql_student_marks = """
