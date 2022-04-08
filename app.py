@@ -260,17 +260,16 @@ def instructor_grading():
     db.close()
     if (user["type"] == "s"):
         abort(403, "This view is instructors only")
-    assignment_id = get_assignment_id()
     if request.method == "POST":
         student_num = request.form["snum"]
-        assignment_id = request.form["regrade-id"]
+        assignment = request.form["regrade-id"]
         mark = request.form["grade"]
         db = get_db()
         cur = db.cursor()
         try:
             cur.execute(
-                "UPDATE marks SET mark = ? WHERE student_num = ? AND aid = ?",
-                [mark,student_num,assignment_id],
+                "UPDATE marks SET mark = ? WHERE student_num = ? AND assignment = ?",
+                [mark,student_num,assignment],
             )
             db.commit()
         except sqlite3.InterfaceError as err:
@@ -278,7 +277,6 @@ def instructor_grading():
     
     return render_template("instructor-grader.html",
                            instructor_name=session["user"],
-                           assignments=assignment_id,
                            error=False)
 
 
