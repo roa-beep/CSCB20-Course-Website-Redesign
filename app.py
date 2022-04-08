@@ -226,73 +226,23 @@ def instructor_viewgrades():
 
 @app.route("/student-marks")
 def student_marks():
-    sql_student_marks_a1 = """
+    sql_student_marks = """
     SELECT mark 
     FROM marks
-    WHERE username = ? AND aid = 1
+    WHERE username = ?
+    ORDER BY aid ASC
     """
-    mark_a1 = query_db(sql_student_marks_a1, (session["user"],))
-
-    sql_student_marks_a2 = """
-    SELECT mark 
+    sql_assignments = """
+    SELECT aid
     FROM marks
-    WHERE username = ? AND aid = 2
+    WHERE username = ?
+    ORDER BY aid ASC
     """
-    mark_a2 = query_db(sql_student_marks_a2, (session["user"],))
-
-    sql_student_marks_a3 = """
-    SELECT mark 
-    FROM marks
-    WHERE username = ? AND aid = 3
-    """
-    mark_a3 = query_db(sql_student_marks_a3, (session["user"],))
-
-    sql_student_marks_mid = """
-    SELECT mark 
-    FROM marks
-    WHERE username = ? AND aid = 4
-    """
-    mark_mid = query_db(sql_student_marks_mid, (session["user"],))
-
-    sql_student_marks_f = """
-    SELECT mark 
-    FROM marks
-    WHERE username = ? AND aid = 5
-    """
-    mark_f = query_db(sql_student_marks_f, (session["user"],))
-
-    if (len(mark_a1) == 0):
-        tempa1 = 'Unreleased'
-    else:
-        tempa1 = mark_a1[0]['mark']
-    
-    if (len(mark_a2) == 0):
-        tempa2 = 'Unreleased'
-    else:
-        tempa2=mark_a2[0]['mark']
-    
-    if (len(mark_a3) == 0):
-        tempa3 = 'Unreleased'
-    else:
-        tempa3 = mark_a3[0]['mark']
-
-    if (len(mark_mid) == 0):
-        tempmid = 'Unreleased'
-    else:
-        tempmid = mark_mid[0]['mark']
-
-    if (len(mark_f) == 0):
-        tempf = 'Unreleased'
-    else:
-        tempf = mark_f[0]['mark']
-    
-    
+    marks_tuples = query_db(sql_student_marks, (session["user"],))
+    assignments = query_db(sql_assignments, (session["user"],))
     return render_template("student-marks.html",
-                        a1=tempa1,
-                        a2=tempa2,
-                        a3=tempa3,
-                        mid=tempmid,
-                        final=tempf)  
+                        assignments=assignments,
+                        grades=marks_tuples)  
 
 
 
