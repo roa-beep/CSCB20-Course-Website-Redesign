@@ -15,19 +15,43 @@
          </nav>
       </div>
       <div class="header">
-         <h1>Your Student Feedback</h1>
+         <h1>Your Student Grades</h1>
       </div>
       <div class="content">
          <div class="content-container">
             <div align="center" class="button-div">
-            {% for dict_item in anon_feedback %}
-               {% for key, value in dict_item.items() %}
-                  <h2>{{value}}</h2>
+               <div class="grid ">
+
+               <div class="text-block">
+                  <div class="text-block">Student username</div>         
+                  {% for a in students %}
+                     {% for aid, num in a.items() %}
+                     <div class="text-block">{{num}}</div>
+                     {% endfor %}
+                  {% endfor %}
+               </div>
+
+               <div class="text-block">  
+                  <div class="text-block">Assessment</div>     
+               {% for a in assignments %}
+                  {% for aid, num in a.items() %}
+                  <div class="text-block">{{num}}</div>
+                  {% endfor %}
                {% endfor %}
-            {% endfor %}
-               
-               {% if not anon_feedback %}
-               <div>No feedback to view!</div>
+            </div>
+
+            <div class="text-block">
+               <div class="text-block">Mark</div>         
+               {% for a in grades %}
+                  {% for aid, num in a.items() %}
+                  <div class="text-block">{{num}}</div>
+                  {% endfor %}
+               {% endfor %}
+            </div>         
+
+         </div>
+               {% if not grades %}
+                  <div>No Grades to view!</div>
                {% endif %}
             </div>
          </div>

@@ -187,6 +187,43 @@ def instructor_feedback():
                         urhelp=check,
                         anon_feedback=anon_feedback)  
 
+def get_assignments():
+    # returns all the assignments
+    sql_assignments = """
+    SELECT aid
+    FROM marks
+    ORDER BY username ASC, aid ASC
+    """
+    return query_db(sql_assignments)
+
+def get_students():
+    # returns all the assignments
+    sql_assignments = """
+    SELECT username
+    FROM marks
+    ORDER BY username ASC, aid ASC
+    """
+    return query_db(sql_assignments)
+
+@app.route("/instructor-viewgrades")
+def instructor_viewgrades():
+    sql = """
+    SELECT mark
+    FROM marks
+    ORDER BY username ASC, aid ASC
+    """
+    grades_tuples = query_db(sql)
+    assignments = get_assignments()
+    students = get_students()
+    return render_template("instructor-viewgrades.html",
+                           instructor_name=session["user"],
+                           grades=grades_tuples,
+                           students=students,
+                           assignments=assignments)
+
+
+
+
 @app.route("/student-marks")
 def student_marks():
     sql_student_marks_a1 = """
