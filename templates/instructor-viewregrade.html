@@ -1,0 +1,66 @@
+<html>
+   <link href='../static/instructor-viewregrade.css' rel='stylesheet' />
+   <body>
+      <div class="nav">
+         <nav class="nav-menu">
+            <a href="home" class="nav-link">Home</a>
+            <a href="/static/courseteam.html" class="nav-link">Course team</a>
+            <a href="instructor-viewfeedback" class="nav-link w--current">Anon Feedback</a>
+            <a href="/static/labs.html" class="nav-link">Labs</a>
+            <a href="/static/asgmt.html" class="nav-link">Assignments</a>
+            <a href="instructor-viewgrades" class="nav-link">Grades</a>
+            <a href="https://markus.utsc.utoronto.ca/cscb20w22" target="_blank" class="nav-link">Markus</a>
+            <a href="https://piazza.com/utoronto.ca/winter2022/cscb20h3" target="_blank" class="nav-link">Piazza</a>
+            <a href="/" class="nav-link w--current">Log out</a>
+         </nav>
+      </div>
+      <div class="header">
+         <h1>Your Students Remark Requests</h1>
+      </div>
+      <div class="content">
+         <div class="content-container">
+            <div align-items="center" class="button-div">
+               <div class="grid ">
+
+               <div class="text-block">
+                  <div class="text-block">Student number</div>         
+                  {% for a in student_num %}
+                     {% for aid, num in a.items() %}
+                     <div class="text-block">{{num}}</div>
+                     {% endfor %}
+                  {% endfor %}
+               </div>
+
+               <div class="text-block">  
+                  <div class="text-block">Assessment</div>     
+               {% for a in aid %}
+                  {% for aid, num in a.items() %}
+                  <div class="text-block">{{num}}</div>
+                  {% endfor %}
+               {% endfor %}
+                </div>
+
+                <div class="text-block">
+                <div class="text-block">Reason</div>         
+               {% for a in remark %}
+                  {% for aid, num in a.items() %}
+                  <div class="text-block">{{num}}</div>
+                  {% endfor %}
+               {% endfor %}
+                </div>         
+
+         </div>
+               {% if not remark %}
+                  <div>No Remark requests!</div>
+               {% endif %}
+            </div>
+         </div>
+      </div>
+      <div class="footer">
+         <div class="footer-container">
+            <a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science" target="_blank" class="footer-link">Faculty of Computer Science at the University of Toronto Scarborough</a> 
+            <div class="footer-credits"> &copy; Site by Roa Brahimi | Aniqa Khan | Zaamin Rattansi</div>
+         </div>
+      </div>
+   </body>
+</html>

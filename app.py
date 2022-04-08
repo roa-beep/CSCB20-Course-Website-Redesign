@@ -186,6 +186,8 @@ def instructor_feedback():
                         instructor_name=session["user"],
                         urhelp=check,
                         anon_feedback=anon_feedback)  
+    return render_template("instructor-viewfeedback.html",
+                        anon_feedback=anon_feedback)  
 
 def get_assignments():
     # returns all the assignments
@@ -312,6 +314,34 @@ def student_remark():
     return render_template("student-remark.html",
                            student_name=session["user"],
                            error=False)
+    
+@app.route("/instructor-viewregrade")
+def instructor_viewregrade():
+    sql_reason = """
+    SELECT regrade_reason
+    FROM remark_requests
+    ORDER BY student_num ASC, aid ASC
+    """
+    sql_sn = """
+    SELECT student_num
+    FROM remark_requests
+    ORDER BY student_num ASC, aid ASC
+    """
+    sql_aid = """
+    SELECT aid
+    FROM remark_requests
+    ORDER BY student_num ASC, aid ASC
+    """
+    remark_tuples = query_db(sql_reason)
+    student_num = query_db(sql_sn)
+    aid = query_db(sql_aid)
+    return render_template("instructor-viewregrade.html",
+                           instructor_name=session["user"],
+                           remark=remark_tuples,
+                           student_num=student_num,
+                           aid=aid)
+
+
 
 
 
