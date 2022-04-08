@@ -9,31 +9,18 @@
 
       <div align="center" class="button-div">
         <form class="grader" action="" method="POST">
-        <label for="snum">Student Number: </label>
           <input class="login-box" type="text" maxlength="10" pattern="[0-9]{9,10}" placeholder="Student Number" name="snum" id="snum" required>
           <br><br>
 
-
-          <label for="regrade-id">Select Assignment/Test:</label>
-          <select id="regrade-id" name="regrade-id">
-            {% for dict_item in assignments %}
-               {% for key, value in dict_item.items() %}
-               <option value="{{value}}">{{value}}</option>
-               {% endfor %}
-            {% endfor %}
-          </select>
+          <input class="login-box" type="text" placeholder="Assignment name" id="regrade-id" name="regrade-id" required>
           <br><br>
-
-
         </select>
-        <br><br>
-        <label for="grade">Mark (0-100):</label>
-        <input type="number" id="grade" onchange="limiter(this)" name="grade" min="0" max="100">
+        <input placeholder="Mark (0-100)" type="number" id="grade" onchange="limiter(this)" name="grade" min="0" max="100">
         <br><br>
         <button class="regrade-button" type="submit" name="submit-grade" id="submit-grade" onclick="">Submit Grade</button>
         </form>
         <a href="instructor-viewgrades" class="text-button">VIEW STUDENT GRADES</a>
-        <a href="instructor-viewregrade" class="text-button">VIEW REGRADE REQUESTS</a>
+        <a href="instructor-viewremark" class="text-button">VIEW REMARK REQUESTS</a>
       </div>
 
     </div>
