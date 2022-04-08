@@ -313,7 +313,7 @@ def student_remark():
                            student_name=session["user"],
                            error=False)
     
-@app.route("/instructor-viewremark")
+@app.route("/instructor-viewregrade")
 def instructor_viewregrade():
     sql_reason = """
     SELECT regrade_reason
