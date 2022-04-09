@@ -425,6 +425,18 @@ def instructor_viewregrade():
 
 @app.route("/student-marks")
 def student_marks():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "i"):
+        abort(403, "This view is students only")
     sql_student_marks = """
     SELECT mark 
     FROM marks
@@ -445,26 +457,98 @@ def student_marks():
 
 @app.route("/assignments")
 def assignments():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "s"):
+        abort(403, "This view is instructors only")
     return render_template("asgmt.html")
 
 @app.route("/labs")
 def labs():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "s"):
+        abort(403, "This view is instructors only")
     return render_template("labs.html")
 
 @app.route("/courseteam")
 def courseteam():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "s"):
+        abort(403, "This view is instructors only")
     return render_template("courseteam.html")
 
 @app.route("/assignments-student")
 def assignments_student():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "i"):
+        abort(403, "This view is students only")
     return render_template("asgmt-student.html")
 
 @app.route("/labs-student")
 def labs_student():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "i"):
+        abort(403, "This view is students only")
     return render_template("labs-student.html")
 
 @app.route("/courseteam-student")
 def courseteam_student():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "i"):
+        abort(403, "This view is students only")
     return render_template("courseteam-student.html")
 
 @app.route("/home")
