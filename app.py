@@ -407,7 +407,17 @@ def student_marks():
                         assignments=assignments,
                         grades=marks_tuples)  
 
+@app.route("/assignments")
+def assignments():
+    return render_template("asgmt.html")
 
+@app.route("/labs")
+def labs():
+    return render_template("labs.html")
+
+@app.route("/courseteam")
+def courseteam():
+    return render_template("courseteam.html")
 
 @app.route("/home")
 def home():
