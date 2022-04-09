@@ -117,6 +117,99 @@ body {
     cursor: default;
     transition: background 0.5s;
   }
+
+  .containerp {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .photography-wrapper-03 {
+    position: absolute;
+    right: 40px;
+    bottom: 0px;
+    z-index: 1;
+    box-shadow: 7px 7px 20px 0 transparent;
+    transition: box-shadow 200ms ease, z-index 200ms ease, transform 200ms ease;
+  }
+  
+  .photography-wrapper-03:hover {
+    box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, 0.3);
+    transform: translate(-5px, -5px);
+  }
+  
+  .photography-wrapper-02 {
+    position: absolute;
+    z-index: 2;
+    box-shadow: 7px 7px 20px 0 transparent;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  
+  .photography-wrapper-02:hover {
+    box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, 0.3);
+    transform: translate(-2px, -2px);
+  }
+  
+  .photography-container {
+    position: relative;
+    display: flex;
+    height: 480px;
+    min-width: 600px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photography {
+    border-radius: 5px;
+    box-shadow: 14px 14px 30px -15px rgba(71, 71, 71, 0.7);
+  }
+  
+  .photography-wrapper {
+    position: absolute;
+    left: 40px;
+    top: 60px;
+    z-index: 1;
+    box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, 0.45);
+    transition: box-shadow 200ms ease, z-index 200ms ease, transform 800ms cubic-bezier(.165, .84, .44, 1);
+  }
+  
+  .photography-wrapper:hover {
+    box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, 0.3);
+    transform: translate(-5px, -5px);
+  }
+
+
+  .information {
+    max-width: 500px;
+    align-self: center;
+  }
+
+
+  .information {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: center;
+  }
+  .information {
+    max-width: 100%;
+    margin-top: 20px;
+  }
   @media screen and (max-width: 390px) {
     .header h1 {
         font-size: 50px;
