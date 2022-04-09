@@ -52,6 +52,7 @@ def query_db(query, args=(), one=False):
 
 
 app = Flask(__name__)
+app.secret_key = b"secretkey"
 
 bcrypt = Bcrypt(app)
 
@@ -430,5 +431,4 @@ def home():
 
 
 if __name__ == "__main__":
-    app.secret_key = b"secretkey"
     app.run(debug=True)
