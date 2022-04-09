@@ -172,6 +172,18 @@ def feedback():
 
 @app.route("/instructor-viewfeedback")
 def instructor_feedback():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "s"):
+        abort(403, "This view is instructors only")
     sql_anon_feedback = """
     SELECT message
     FROM anon
@@ -219,6 +231,18 @@ def get_student_names():
 
 @app.route("/instructor-viewgrades")
 def instructor_viewgrades():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "s"):
+        abort(403, "This view is instructors only")
     sql = """
     SELECT mark
     FROM marks
@@ -359,6 +383,18 @@ def student_remark():
     
 @app.route("/instructor-viewremark")
 def instructor_viewregrade():
+    if "user" not in session:
+        abort(403, "You are not allowed access")
+    db = get_db()
+
+    user = query_db(
+        "SELECT firstname, lastname, type FROM User WHERE username = (?)",
+        [session["user"]],
+        one=True,
+    )
+    db.close()
+    if (user["type"] == "s"):
+        abort(403, "This view is instructors only")
     sql_reason = """
     SELECT regrade_reason
     FROM remark_requests
