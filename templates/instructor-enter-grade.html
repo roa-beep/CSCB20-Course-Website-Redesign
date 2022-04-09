@@ -1,0 +1,41 @@
+<html>
+    <link type="text/css" href="{{url_for('static', filename='login.css')}}" rel='stylesheet' />
+   <body>
+      <div class="header">
+            <h1>Authorized use only</h1></div>
+      
+        <div class="content">
+    <div class="content-container">
+      <div align="center" class="button-div">
+        <form class="grader" action="" method="POST">
+          <input class="login-box" type="text" maxlength="10" pattern="[0-9]{9,10}" placeholder="Student Number" name="snum" id="snum" required>
+          <br><br>
+          <input class="login-box" type="text" placeholder="Assignment name" id="regrade-id" name="regrade-id" required>
+          <br><br>
+          <input class="login-box" type="text" placeholder="username" id="username" name="username" required>
+          <br><br>
+          <input class="login-box" type="text" placeholder="aid" id="aid" name="aid" required>
+          <br><br>
+          <input class="login-box" type="text" placeholder="student name" id="student-name" name="student-name" required>
+          <br><br>
+        </select>
+        <input placeholder="Mark (0-100)" type="number" id="grade" onchange="limiter(this)" name="grade" min="0" max="100">
+        <br><br>
+        <button class="regrade-button" type="submit" name="submit-grade" id="submit-grade" onclick="">Submit Entry</button>
+        </form>
+        <br></br><br></br>
+        <a href="instructor-viewgrades" class="btn">VIEW ALL MARKS</a>
+        <a href="instructor-viewremark" class="btn">VIEW REMARK REQUESTS</a>
+        <a href="instructor-enter-grade" class="btn">NEW MARK ENTRIES</a>
+        <a href="instructor-grader" class="btn">REMARK ENTRIES</a>
+      </div>
+
+    </div>
+      <div class="footer">
+         <div class="footer-container">
+            <a href="https://www.utsc.utoronto.ca/cms/faculty-of-computer-science" target="_blank" class="footer-link">Faculty of Computer Science at the University of Toronto Scarborough</a> 
+            <div class="footer-credits"> &copy; Site by Roa Brahimi | Aniqa Khan | Zaamin Rattansi</div>
+         </div>
+      </div>
+   </body>
+</html>
