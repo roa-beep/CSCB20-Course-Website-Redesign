@@ -130,7 +130,7 @@ body {
     justify-content: space-between;
     align-items: center;
   }
-  .photography-wrapper-03 {
+  .pic-wrapper-03 {
     position: absolute;
     right: 40px;
     bottom: 0px;
@@ -139,24 +139,24 @@ body {
     transition: box-shadow 200ms ease, z-index 200ms ease, transform 200ms ease;
   }
   
-  .photography-wrapper-03:hover {
+  .pic-wrapper-03:hover {
     box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, 0.3);
     transform: translate(-5px, -5px);
   }
   
-  .photography-wrapper-02 {
+  .pic-wrapper-02 {
     position: absolute;
     z-index: 2;
     box-shadow: 7px 7px 20px 0 transparent;
     transition: box-shadow 200ms ease, transform 200ms ease;
   }
   
-  .photography-wrapper-02:hover {
+  .pic-wrapper-02:hover {
     box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, 0.3);
     transform: translate(-2px, -2px);
   }
   
-  .photography-container {
+  .pic-container {
     position: relative;
     display: flex;
     height: 480px;
@@ -165,12 +165,12 @@ body {
     align-items: center;
   }
 
-  .photography {
+  .pic {
     border-radius: 5px;
     box-shadow: 14px 14px 30px -15px rgba(71, 71, 71, 0.7);
   }
   
-  .photography-wrapper {
+  .pic-wrapper {
     position: absolute;
     left: 40px;
     top: 60px;
@@ -179,7 +179,7 @@ body {
     transition: box-shadow 200ms ease, z-index 200ms ease, transform 800ms cubic-bezier(.165, .84, .44, 1);
   }
   
-  .photography-wrapper:hover {
+  .pic-wrapper:hover {
     box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, 0.3);
     transform: translate(-5px, -5px);
   }
@@ -192,17 +192,10 @@ body {
 
 
   .information {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     margin-right: auto;
     margin-left: auto;
     padding-top: 20px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
     flex-direction: column;
     text-align: center;
   }
