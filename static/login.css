@@ -18,7 +18,7 @@ body {
   }
   .footer-link {
     display: block;
-    margin-bottom: 20px;
+    
     opacity: 0.65;
     font-family: system-ui;
     color: #fff;
@@ -51,6 +51,7 @@ body {
   }
   
   .header {
+    padding: 100px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), #000), url(https://i.ibb.co/6Y7RfGX/IMG-7535-auto-x2.jpg) no-repeat center center;
     background-size: cover;
     height: 800px;
