@@ -14,7 +14,7 @@ import sqlite3
 from flask_bcrypt import Bcrypt
 fromr os import environ
 
-DATABASE = environ.get('DATABASE_URL') or "Assignment3.db"
+DATABASE = "Assignment3.db"
 TABLE = "User"
 
 
