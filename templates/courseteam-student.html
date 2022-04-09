@@ -1,5 +1,5 @@
 <html>
-    <link type="text/css" href="{{url_for('static', filename='student-marks.css')}}" rel='stylesheet' />
+   <link href='../static/courseteam.css' rel='stylesheet' />
    <body>
       <div class="nav">
          <nav class="nav-menu">
@@ -16,48 +16,23 @@
       </div>
       <div class="header">
         <div class="container">
-           <p>Your Grades!</p>
+           <p>Course Team</p>
         </div>
         
     </div>
     <div class="content">
         <div class="content-container">
-         <div align="center" class="button-div">
-            <div class="grid ">
-
-
-
-            <div class="text-block">  
-               <div class="text-block">ID</div>     
-            {% for a in assignments %}
-               {% for aid, num in a.items() %}
-               <div class="text-block">{{num}}</div>
-               {% endfor %}
-            {% endfor %}
-         </div>
-
-         <div class="text-block">
-            <div class="text-block">Mark</div>         
-            {% for a in grades %}
-               {% for aid, num in a.items() %}
-               <div class="text-block">{{num}}</div>
-               {% endfor %}
-            {% endfor %}
-         </div>         
-         
-
-
-      </div>         
-   
-            </div>
-                  {% if not grades %}
-                     <div>No Grades to view!</div>
-                  {% endif %}
-               </div>     
-        <div>
-             <a href="/student-remark">Submit Remark Request</a>
-        </div>
-           
+           <h1>Instructor</h1>
+           <img src="./Assets/purvapic.png" alt="picture of Dr Purva R. Gawde"/>
+           <p>Dr Purva R. Gawde</p>
+           <h2>Contact Information</h2>
+           <p>Email: purva.gawde@utoronto.ca</p>
+           <p>Office: IC 484</p>
+           <p>Phone: 647-601-4658</p>
+           <h2>TA's</h2>
+           <img src="./Assets/personpic1.png" alt="picture of random person in place for Rick"/>
+           <img src="./Assets/personpic2.png" alt="picture of random person in place for Vidya"/>
+           <p>Rick and Vidya</p>
         </div>
      </div>
       <div class="footer">

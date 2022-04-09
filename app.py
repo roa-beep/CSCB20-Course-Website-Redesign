@@ -455,6 +455,18 @@ def labs():
 def courseteam():
     return render_template("courseteam.html")
 
+@app.route("/assignments-student")
+def assignments_student():
+    return render_template("asgmt-student.html")
+
+@app.route("/labs-student")
+def labs_student():
+    return render_template("labs-student.html")
+
+@app.route("/courseteam-student")
+def courseteam_student():
+    return render_template("courseteam-student.html")
+
 @app.route("/home")
 def home():
     if "user" not in session:
