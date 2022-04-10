@@ -4,6 +4,7 @@ body {
     display: flex;
     height: 100vh;
     flex-direction: column;
+    background: #000;
   }
   .nav {
     background: #000;
@@ -71,14 +72,22 @@ body {
     border: 0.5px solid #9a9a9a;
     padding: 30px;
     border-radius: 50px;
+    font-size: 20px;
   }
-  
+  .container {
+    margin: 0 auto;
+    max-width: 940px;
+    padding: 10 10px;
+    margin-bottom: 40px;
+  }  
   .header {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), #000), url(https://i.ibb.co/6Y7RfGX/IMG-7535-auto-x2.jpg) no-repeat center center;
     background-size: cover;
     height: 800px;
     text-align: center;
     font-family: system-ui;
+    font-size: 40px;
+    padding-top: 10;
   }
   .header h1 {
     color: #fff;
@@ -89,7 +98,15 @@ body {
     text-transform: uppercase;
     filter: drop-shadow(5px 5px 10px #000);
   }
-  
+  .header p {
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 8px;
+    margin-bottom: 40px;
+    margin-top: 0;
+    text-transform: uppercase;
+    filter: drop-shadow(5px 5px 10px #000);
+  }  
   .btn {
     color: #fff;
     background: #000;
