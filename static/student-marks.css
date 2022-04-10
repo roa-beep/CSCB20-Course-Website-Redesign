@@ -62,8 +62,8 @@ body {
     color: #fff;
     display: block;
     padding: 30px;
+    margin-top: auto;
     background: #000;
-
     font-family: system-ui;
     font-weight: 200;
     text-align: center;
