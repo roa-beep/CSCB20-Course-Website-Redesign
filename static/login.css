@@ -88,6 +88,13 @@ body {
     transition: background 0.5s;
   }
   
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  max-width: 100%;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+}
   input {
     width: 50%;
     height: 50px;

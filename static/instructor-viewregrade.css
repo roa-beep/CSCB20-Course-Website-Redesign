@@ -137,6 +137,14 @@ body {
     grid-template-columns: auto auto;
   }
   
+  .grid-grades {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    max-width: 100%;
+    grid-row-gap: 16px;
+    grid-column-gap: 16px;
+  }
+
   .text-block.first {
     border-style: none;
   }
