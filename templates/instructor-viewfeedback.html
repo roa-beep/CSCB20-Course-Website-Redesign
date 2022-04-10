@@ -22,8 +22,9 @@
          <div class="content-container">
             <div align="center" class="button-div">
             {% for dict_item in anon_feedback %}
+            <h3>Feedback:</h3>
                {% for key, value in dict_item.items() %}
-                  <h2>{{value}}</h2>
+                  <p> {{value}}</p>
                {% endfor %}
             {% endfor %}
                
