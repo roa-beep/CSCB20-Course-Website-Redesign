@@ -32,6 +32,7 @@ body {
   }
   .footer {
     background: #000;
+    margin-top: auto;
     text-align: center;
     font-size: 12px;
     line-height: 40px;
@@ -41,6 +42,7 @@ body {
   }
   .footer-link {
     display: block;
+    margin-bottom: 20px;
     opacity: 0.65;
     font-family: system-ui;
     color: #fff;
