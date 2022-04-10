@@ -13,7 +13,7 @@
         {% with error_message = get_flashed_messages() %} {% if error_message %}
         <!-- Loops through the error messages. -->
         {% for error in error_message %}
-        <p>{{ error }}</p>
+        <p style="color:white;">{{ error }}</p>
         {% endfor %} {% endif %} {% endwith %}
       <form action="/api/login" method="POST">
          <input
