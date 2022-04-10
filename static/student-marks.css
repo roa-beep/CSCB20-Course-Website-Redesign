@@ -32,6 +32,7 @@ body {
   }
   .footer {
     background: #000;
+    margin-top: auto;
     text-align: center;
     font-size: 12px;
     line-height: 40px;
@@ -41,6 +42,7 @@ body {
   }
   .footer-link {
     display: block;
+    margin-bottom: 20px;
     opacity: 0.65;
     font-family: system-ui;
     color: #fff;
@@ -59,6 +61,7 @@ body {
   .content {
     color: #fff;
     display: block;
+    padding: 30px;
     background: #000;
 
     font-family: system-ui;
@@ -78,7 +81,7 @@ body {
     margin-bottom: 40px;
   }
   .header {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.57), #000), url(https://i.ibb.co/6Y7RfGX/IMG-7535-auto-x2.jpg) no-repeat center center;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), #000), url(https://i.ibb.co/6Y7RfGX/IMG-7535-auto-x2.jpg) no-repeat center center;
     background-size: cover;
     height: 100px;
     text-align: center;
