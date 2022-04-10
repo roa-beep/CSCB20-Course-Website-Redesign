@@ -62,7 +62,8 @@ body {
     color: #fff;
     display: block;
     background: #000;
-
+    margin-top:auto;
+    padding: 30px;
     font-family: system-ui;
     font-weight: 200;
     text-align: center;
