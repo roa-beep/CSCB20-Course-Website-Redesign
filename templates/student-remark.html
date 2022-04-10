@@ -22,13 +22,13 @@
 
       <div align="center" class="button-div">
         <form class="grader" action="" method="POST">
-        <label for="snum">Student Number: </label>
-          <input class="login-box" type="text" maxlength="10" pattern="[0-9]{9,10}" placeholder="Student Number" name="snum" id="snum" required>
+        <label for="snum">Your student number: </label>
+          <input class="btn-text" type="text" maxlength="10" pattern="[0-9]{9,10}" placeholder="Student Number" name="snum" id="snum" required>
           <br><br>
 
 
           <label for="regrade-id">Select Assignment/Test:</label>
-          <select id="regrade-id" name="regrade-id">
+          <select  class="btn-text" id="regrade-id" name="regrade-id">
                <option value=1>A1</option>
                <option value=2>A2</option>
                <option value=3>A3</option>
@@ -40,10 +40,10 @@
 
         </select>
         <br><br>
-        <label for="Reason">Reason for remark request</label>
-        <input class="login-box" type="text" placeholder="Reason" name="reason" id="reason" required>
+        <label for="Reason">Reason for remark request: </label>
+        <input class="btn-text" type="text" placeholder="Reason" name="reason" id="reason" required>
         <br><br>
-        <button href="home" class="regrade-button" type="submit" name="submit-grade" id="submit-grade" onclick="">Submit Remark</button>
+        <button href="home" class="btn" type="submit" name="submit-grade" id="submit-grade" onclick="">Submit Remark</button>
         </form>
       </div>
 

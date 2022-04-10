@@ -113,6 +113,7 @@ body {
     padding: 10px 40px;
     text-decoration: none;
     border-radius: 20px;
+    border: 0.1px solid #9a9a9a;
     transition: background 0.5s;
   }
   .btn:hover{
