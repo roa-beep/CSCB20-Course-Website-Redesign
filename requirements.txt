@@ -22,5 +22,4 @@ psycopg2-binary==2.9.3
 pyjwt>=2.4.0
 pytz==2021.1
 requests==2.25.1
-twilio==6.51.1
 urllib3>=1.26.5
